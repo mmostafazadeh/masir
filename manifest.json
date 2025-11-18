@@ -1,0 +1,25 @@
+{
+  "name": "نمونه مینی‌اپ بله",
+  "short_name": "مینی‌اپ",
+  "description": "یک نمونه ساده از فایل manifest برای مینی‌اپ بله",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0B76FF",
+  "icons": [
+    {
+      "src": "/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
