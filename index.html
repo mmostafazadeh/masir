@@ -11,6 +11,7 @@
       font-family: 'Vazirmatn', sans-serif;
       background-color: #F5F7F9;
       color: #333;
+      padding-bottom: 60px; /* فضای خالی برای نوار پایین */
     }
 
     .container {
@@ -30,16 +31,16 @@
     }
 
     .profile-img {
-      width: 80px;
-      height: 80px;
+      width: 33%;
       border-radius: 12px;
-      background-color: #00B2A9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
+      overflow: hidden;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
     }
 
     .campaign-info {
@@ -100,6 +101,14 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
 
+    /* توضیحات اضافه */
+    .extra-desc {
+      margin: 16px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #555;
+    }
+
     /* نوار ناوبری پایین */
     .nav {
       display: flex;
@@ -107,6 +116,10 @@
       border-top: 1px solid #e0e0e0;
       padding: 10px 0;
       background-color: #fff;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
 
     .nav-item {
@@ -138,7 +151,9 @@
   <div class="container">
     <!-- بخش بالای صفحه -->
     <div class="header">
-      <div class="profile-img">پویش</div>
+      <div class="profile-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پروفایل پویش">
+      </div>
       <div class="campaign-info">
         <div class="campaign-title">پویش مسئولیت اجتماعی</div>
         <div class="campaign-org">انجمن مردم نهاد همیاران</div>
@@ -165,13 +180,18 @@
       ></iframe>
     </div>
 
-    <!-- نوار ناوبری پایین -->
-    <div class="nav">
-      <div class="nav-item active"><i>👥</i>شبکه من</div>
-      <div class="nav-item"><i>📋</i>ماموریت‌های من</div>
-      <div class="nav-item"><i>🎓</i>آموزش</div>
-      <div class="nav-item"><i>📰</i>اخبار</div>
+    <!-- توضیحات اضافه -->
+    <div class="extra-desc">
+      این بخش شامل توضیحات تکمیلی درباره اهداف پویش، نحوه مشارکت و تاثیرات اجتماعی آن است. کاربران می‌توانند با مشاهده ویدیو و دریافت مأموریت‌ها، نقش فعال‌تری در این حرکت اجتماعی ایفا کنند.
     </div>
+  </div>
+
+  <!-- نوار ناوبری پایین -->
+  <div class="nav">
+    <div class="nav-item active"><i>👥</i>شبکه من</div>
+    <div class="nav-item"><i>📋</i>ماموریت‌های من</div>
+    <div class="nav-item"><i>🎓</i>آموزش</div>
+    <div class="nav-item"><i>📰</i>اخبار</div>
   </div>
 </body>
 </html>
