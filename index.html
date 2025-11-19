@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>پویش اجتماعی</title>
+  <title>صفحه تشکل</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
-      background-color: #fff; /* سفید تا پایین */
+      background-color: #fff;
       color: #333;
     }
 
@@ -43,70 +43,105 @@
       border-radius: 12px;
     }
 
-    .campaign-info {
+    .org-info {
       flex: 1;
     }
 
-    .campaign-title {
+    .org-title {
       font-size: 18px;
       font-weight: bold;
       color: #007E7A;
       margin-bottom: 4px;
     }
 
-    .campaign-org {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 8px;
-    }
-
-    .campaign-desc {
+    .org-desc {
       font-size: 14px;
       line-height: 1.6;
       color: #444;
     }
 
-    /* دکمه‌ها */
-    .buttons {
-      margin-top: 16px;
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn {
-      flex: 1;
+    /* دکمه اشتراک‌گذاری */
+    .share-btn {
+      margin: 16px 0;
+      width: 100%;
       padding: 10px;
       border-radius: 8px;
       border: none;
+      background-color: #00B2A9;
+      color: white;
       font-weight: bold;
       cursor: pointer;
       font-size: 14px;
     }
 
-    .btn-primary {
-      background-color: #00B2A9;
-      color: white;
+    /* آمار */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 0;
+      text-align: center;
     }
 
-    .btn-secondary {
-      background-color: #E0F7F6;
+    .stat {
+      flex: 1;
       color: #007E7A;
     }
 
-    /* ویدیو */
-    .video {
-      margin: 24px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    .stat-value {
+      font-size: 16px;
+      font-weight: bold;
     }
 
-    /* توضیحات اضافه */
-    .extra-desc {
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* گزینه‌ها */
+    .options {
+      display: flex;
+      gap: 12px;
       margin: 16px 0;
+    }
+
+    .option-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #00B2A9;
+      background-color: #E0F7F6;
+      color: #007E7A;
+      font-weight: bold;
+      cursor: pointer;
       font-size: 14px;
-      line-height: 1.6;
-      color: #555;
+    }
+
+    /* تب‌ها */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-top: 16px;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .tab.active {
+      color: #00B2A9;
+      border-bottom: 2px solid #00B2A9;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #444;
     }
 
     /* نوار ناوبری پایین */
@@ -142,7 +177,6 @@
       transition: stroke 0.3s;
     }
 
-    /* حالت انتخاب‌شده */
     .nav-item.active {
       color: #00B2A9;
     }
@@ -151,7 +185,7 @@
       stroke: #00B2A9;
     }
 
-    /* ریسپانسیو برای دسکتاپ */
+    /* ریسپانسیو */
     @media (min-width: 768px) {
       body {
         display: flex;
@@ -172,37 +206,48 @@
     <!-- بخش بالای صفحه -->
     <div class="header">
       <div class="profile-img">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پروفایل پویش">
+        <img src="https://via.placeholder.com/150" alt="پروفایل تشکل">
       </div>
-      <div class="campaign-info">
-        <div class="campaign-title">زندگی با آیه‌ها</div>
-        <div class="campaign-org">سازمان تبلیغات اسلامی</div>
-        <div class="campaign-desc">
-          آیات قرآن را بخوانیم، حفظ و زندگی کنیم.
+      <div class="org-info">
+        <div class="org-title">تشکل مردم‌نهاد همیاران</div>
+        <div class="org-desc">
+          این تشکل با هدف ارتقای مسئولیت اجتماعی و توسعه فعالیت‌های داوطلبانه در جامعه فعالیت می‌کند.
         </div>
       </div>
     </div>
 
-    <!-- دکمه‌ها -->
-    <div class="buttons">
-      <button class="btn btn-primary">دریافت مأموریت</button>
-      <button class="btn btn-secondary">لینک دعوت پویش</button>
+    <!-- دکمه اشتراک‌گذاری -->
+    <button class="share-btn">لینک به اشتراک‌گذاری</button>
+
+    <!-- آمار -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">12</div>
+        <div class="stat-label">پویش‌ها</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">350</div>
+        <div class="stat-label">مشارکت‌کننده‌ها</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">45</div>
+        <div class="stat-label">ماموریت‌ها</div>
+      </div>
     </div>
 
-    <!-- ویدیو -->
-    <div class="video">
-      <iframe
-        src="https://www.aparat.com/video/video/embed/videohash/ztp8ic2/vt/frame"
-        width="100%"
-        height="200"
-        allowfullscreen
-        style="border: none;"
-      ></iframe>
+    <!-- گزینه‌ها -->
+    <div class="options">
+      <button class="option-btn">مرا در جریان بگذار</button>
+      <button class="option-btn">ارسال پیام</button>
     </div>
 
-    <!-- توضیحات اضافه -->
-    <div class="extra-desc">
-      اینجا میخوایم 100 آیه را بخوانیم، حفظ و زندگی کنیم. همراه با هدایای مادی و معنویی(حج عمره، عتبات، مشهد مقدس و هزاران هدیه دیگر).
+    <!-- تب‌ها -->
+    <div class="tabs">
+      <div class="tab active">پویش‌های تشکل</div>
+      <div class="tab">اخبار مهم</div>
+    </div>
+    <div class="tab-content">
+      اینجا لیست پویش‌های فعال این تشکل نمایش داده می‌شود.
     </div>
   </div>
 
