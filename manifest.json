@@ -1,24 +1,22 @@
 {
-  "name": "نمونه مینی‌اپ بله",
-  "short_name": "مینی‌اپ",
-  "description": "یک نمونه ساده از فایل manifest برای مینی‌اپ بله",
-  "lang": "fa",
-  "dir": "rtl",
-  "start_url": "/index.html",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#FFFFFF",
-  "theme_color": "#0B76FF",
-  "icons": [
+  "name": "multi-entry-miniapp",
+  "displayName": "مینی‌اپ چند ورودی",
+  "version": "1.0.0",
+  "startUrl": "/index.html",
+  "pages": [
     {
-      "src": "/icons/icon-128.png",
-      "sizes": "128x128",
-      "type": "image/png"
+      "name": "dashboard",
+      "url": "/dashboard.html"
     },
     {
-      "src": "/icons/icon-256.png",
-      "sizes": "256x256",
+      "name": "campaign",
+      "url": "/campaign.html"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/assets/icon.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
