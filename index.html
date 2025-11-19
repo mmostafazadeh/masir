@@ -18,7 +18,7 @@
       max-width: 480px;
       margin: auto;
       background-color: #fff;
-      min-height: 100vh; /* ارتفاع کامل */
+      min-height: 100vh;
       box-sizing: border-box;
       padding-bottom: 80px; /* فضای برای نوار پایین */
     }
@@ -131,12 +131,15 @@
       transition: color 0.3s;
     }
 
-    .nav-item i {
+    .nav-item svg {
       display: block;
-      font-size: 20px;
-      margin-bottom: 4px;
-      color: #999;
-      transition: color 0.3s;
+      width: 24px;
+      height: 24px;
+      margin: 0 auto 4px;
+      stroke: #999;
+      fill: none;
+      stroke-width: 2;
+      transition: stroke 0.3s;
     }
 
     /* حالت انتخاب‌شده */
@@ -144,8 +147,8 @@
       color: #00B2A9;
     }
 
-    .nav-item.active i {
-      color: #00B2A9;
+    .nav-item.active svg {
+      stroke: #00B2A9;
     }
 
     /* ریسپانسیو برای دسکتاپ */
@@ -172,10 +175,10 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پروفایل پویش">
       </div>
       <div class="campaign-info">
-        <div class="campaign-title">زندگی با آیه‌ها</div>
+        <div class="campaign-title">پویش مسئولیت اجتماعی</div>
         <div class="campaign-org">انجمن مردم نهاد همیاران</div>
         <div class="campaign-desc">
-          آیات قرآن را بخوانیم، حفظ و زندگی کنیم.
+          در این پویش سعی داریم مسئولیت اجتماعی خودمون رو در قبال محیط زندگیمون به یک عادت تبدیل کنیم.
         </div>
       </div>
     </div>
@@ -199,16 +202,40 @@
 
     <!-- توضیحات اضافه -->
     <div class="extra-desc">
-      اینجا میخوایم 100 آیه را بخوانیم، حفظ و زندگی کنیم. همراه با هدایای مادی و معنویی(حج عمره، عتبات، مشهد مقدس و هزاران هدیه دیگر).
+      این بخش شامل توضیحات تکمیلی درباره اهداف پویش، نحوه مشارکت و تاثیرات اجتماعی آن است. کاربران می‌توانند با مشاهده ویدیو و دریافت مأموریت‌ها، نقش فعال‌تری در این حرکت اجتماعی ایفا کنند.
     </div>
   </div>
 
   <!-- نوار ناوبری پایین -->
   <div class="nav">
-    <div class="nav-item active"><i>👥</i>شبکه من</div>
-    <div class="nav-item"><i>📋</i>ماموریت‌های من</div>
-    <div class="nav-item"><i>🎓</i>آموزش</div>
-    <div class="nav-item"><i>📰</i>اخبار</div>
+    <div class="nav-item active">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4"></circle>
+        <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
+      </svg>
+      شبکه من
+    </div>
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+        <path d="M8 8h8M8 12h8M8 16h4"></path>
+      </svg>
+      مأموریت‌های من
+    </div>
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M4 19h16M4 5h16v14H4z"></path>
+        <path d="M12 5v14"></path>
+      </svg>
+      آموزش
+    </div>
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+        <path d="M7 8h10M7 12h10M7 16h6"></path>
+      </svg>
+      اخبار
+    </div>
   </div>
 </body>
 </html>
