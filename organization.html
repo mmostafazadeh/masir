@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صفحه تشکل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .container {
+      padding: 16px;
+      max-width: 480px;
+      margin: auto;
+      background-color: #fff;
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding-bottom: 80px; /* فضای برای نوار پایین */
+    }
+
+    /* بخش بالای صفحه */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .profile-img {
+      width: 33%;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .org-info {
+      flex: 1;
+    }
+
+    .org-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #007E7A;
+      margin-bottom: 6px;
+    }
+
+    .org-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* دکمه اشتراک‌گذاری */
+    .share-btn {
+      margin: 16px 0;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #00B2A9;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* آمار */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 0;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .stat {
+      flex: 1;
+      background: #F7FBFA;
+      border: 1px solid #E0F2F1;
+      border-radius: 8px;
+      padding: 10px 8px;
+    }
+
+    .stat-value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #00B2A9;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* گزینه‌ها */
+    .options {
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .option-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #00B2A9;
+      background-color: #E0F7F6;
+      color: #007E7A;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* تب‌ها */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-top: 8px;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .tab.active {
+      color: #00B2A9;
+      border-bottom: 2px solid #00B2A9;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* گرید پویش‌ها */
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .campaign-card {
+      background-color: #F9F9F9;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .campaign-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .campaign-title {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #007E7A;
+    }
+
+    .campaign-btn {
+      padding: 6px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      background-color: #00B2A9;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* تب اخبار */
+    .news-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .news-item {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 10px;
+      background: #FAFAFA;
+    }
+
+    .news-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .news-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* نوار ناوبری پایین با آیکن‌های خطی */
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e0e0e0;
+      padding: 10px 0;
+      background-color: #fff;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      transition: color 0.3s;
+    }
+
+    .nav-item svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin: 0 auto 4px;
+      stroke: #999;
+      fill: none;
+      stroke-width: 2;
+      transition: stroke 0.3s;
+    }
+
+    .nav-item.active {
+      color: #00B2A9;
+    }
+
+    .nav-item.active svg {
+      stroke: #00B2A9;
+    }
+
+    /* ریسپانسیو برای دسکتاپ: وسط‌چین و محدود به عرض موبایل */
+    @media (min-width: 768px) {
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        margin: 0 auto;
+      }
+      .nav {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- بخش بالای صفحه -->
+    <div class="header">
+      <div class="profile-img">
+        <img src="https://media.hawzahnews.com/old/fa/Original/1398/04/01/IMG10272761.jpg" alt="پروفایل تشکل">
+      </div>
+      <div class="org-info">
+        <div class="org-title">سازمان تبلیغات اسلامی</div>
+        <div class="org-desc">
+          سلاح تبلیغات، برنده‌تر از کاربرد سلاح در میدان‌های جنگ است. امام خمینی (ره)
+        </div>
+      </div>
+    </div>
+
+    <!-- دکمه اشتراک‌گذاری -->
+    <button class="share-btn">لینک به اشتراک‌گذاری</button>
+
+    <!-- آمار -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">6</div>
+        <div class="stat-label">پویش‌ها</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">350</div>
+        <div class="stat-label">مشارکت‌کننده‌ها</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">45</div>
+        <div class="stat-label">ماموریت‌ها</div>
+      </div>
+    </div>
+
+    <!-- گزینه‌ها -->
+    <div class="options">
+      <button class="option-btn">مرا در جریان بگذار</button>
+      <button class="option-btn">ارسال پیام</button>
+    </div>
+
+    <!-- تب‌ها -->
+    <div class="tabs">
+      <div class="tab active">پویش‌های مجموعه</div>
+      <div class="tab">اخبار مجموعه</div>
+    </div>
+
+    <!-- محتوای تب‌ها -->
+    <div class="tab-content" id="tab-campaigns">
+      <div class="campaign-grid">
+        <!-- 6 پویش نمونه با همان تصویر پویش نمونه -->
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">زندگی با آیه‌ها (آل عمران)</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">زندگی با آیه‌ها (اعراف)</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">زندگی با آیه‌ها (نساء)</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">زندگی با آیه‌ها (یوسف)</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">زندگی با آیه‌ها (عنکبوت)</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">زندگی با آیه‌ها (دخان)</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-news" style="display:none;">
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-title">خبر مهم ۱</div>
+          <div class="news-desc">متن خبر مهم تشکل در این بخش قرار می‌گیرد تا مخاطبان از آخرین رویدادها مطلع شوند.</div>
+        </div>
+        <div class="news-item">
+          <div class="news-title">خبر مهم ۲</div>
+          <div class="news-desc">جزئیات فعالیت‌ها و برنامه‌های آتی تشکل جهت اطلاع‌رسانی و هماهنگی منتشر می‌شود.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- نوار ناوبری پایین -->
+  <div class="nav">
+    <div class="nav-item active">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4"></circle>
+        <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
+      </svg>
+      شبکه من
+    </div>
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+        <path d="M8 8h8M8 12h8M8 16h4"></path>
+      </svg>
+      مأموریت‌های من
+    </div>
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M4 19h16M4 5h16v14H4z"></path>
+        <path d="M12 5v14"></path>
+      </svg>
+      آموزش
+    </div>
+    <div class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+        <path d="M7 8h10M7 12h10M7 16h6"></path>
+      </svg>
+      اخبار
+    </div>
+  </div>
+
+  <!-- اسکریپت ساده برای سوییچ تب‌ها -->
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const campaigns = document.getElementById('tab-campaigns');
+    const news = document.getElementById('tab-news');
+
+    tabs[0].addEventListener('click', () => {
+      tabs[0].classList.add('active');
+      tabs[1].classList.remove('active');
+      campaigns.style.display = 'block';
+      news.style.display = 'none';
+    });
+
+    tabs[1].addEventListener('click', () => {
+      tabs[1].classList.add('active');
+      tabs[0].classList.remove('active');
+      campaigns.style.display = 'none';
+      news.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
