@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>پویش اجتماعی</title>
+  <title>صفحه خانه</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
-      background-color: #fff; /* سفید تا پایین */
+      background-color: #fff;
       color: #333;
     }
 
@@ -23,90 +23,52 @@
       padding-bottom: 80px; /* فضای برای نوار پایین */
     }
 
-    /* بخش بالای صفحه */
-    .header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .profile-img {
-      width: 33%;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .profile-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
-
-    .campaign-info {
-      flex: 1;
-    }
-
-    .campaign-title {
-      font-size: 18px;
+    h2 {
+      font-size: 16px;
       font-weight: bold;
       color: #007E7A;
-      margin-bottom: 4px;
+      margin: 20px 0 10px;
     }
 
-    .campaign-org {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 8px;
-    }
-
-    .campaign-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #444;
-    }
-
-    /* دکمه‌ها */
-    .buttons {
-      margin-top: 16px;
-      display: flex;
+    /* گرید کارت‌ها */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
-    .btn {
-      flex: 1;
-      padding: 10px;
+    .card {
+      background-color: #F9F9F9;
       border-radius: 8px;
-      border: none;
+      padding: 8px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 13px;
       font-weight: bold;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .btn-primary {
-      background-color: #00B2A9;
-      color: white;
-    }
-
-    .btn-secondary {
-      background-color: #E0F7F6;
+      margin-bottom: 6px;
       color: #007E7A;
     }
 
-    /* ویدیو */
-    .video {
-      margin: 24px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-
-    /* توضیحات اضافه */
-    .extra-desc {
-      margin: 16px 0;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #555;
+    .card-btn {
+      padding: 6px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      background-color: #00B2A9;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
     }
 
     /* نوار ناوبری پایین */
@@ -142,7 +104,6 @@
       transition: stroke 0.3s;
     }
 
-    /* حالت انتخاب‌شده */
     .nav-item.active {
       color: #00B2A9;
     }
@@ -151,7 +112,7 @@
       stroke: #00B2A9;
     }
 
-    /* ریسپانسیو برای دسکتاپ */
+    /* ریسپانسیو */
     @media (min-width: 768px) {
       body {
         display: flex;
@@ -169,40 +130,64 @@
 </head>
 <body>
   <div class="container">
-    <!-- بخش بالای صفحه -->
-    <div class="header">
-      <div class="profile-img">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پروفایل پویش">
+    <!-- بخش پویش‌های منتخب -->
+    <h2>پویش‌های منتخب</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="پویش منتخب">
+        <div class="card-title">پویش منتخب ۱</div>
+        <button class="card-btn">مشاهده</button>
       </div>
-      <div class="campaign-info">
-        <div class="campaign-title">زندگی با آیه‌ها</div>
-        <div class="campaign-org">سازمان تبلیغات اسلامی</div>
-        <div class="campaign-desc">
-          آیات قرآن را بخوانیم، حفظ و زندگی کنیم.
-        </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="پویش منتخب">
+        <div class="card-title">پویش منتخب ۲</div>
+        <button class="card-btn">مشاهده</button>
       </div>
     </div>
 
-    <!-- دکمه‌ها -->
-    <div class="buttons">
-      <button class="btn btn-primary">دریافت مأموریت</button>
-      <button class="btn btn-secondary">لینک دعوت پویش</button>
+    <!-- بخش پویش‌های من -->
+    <h2>پویش‌های من</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="پویش من">
+        <div class="card-title">پویش من ۱</div>
+        <button class="card-btn">مدیریت</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="پویش من">
+        <div class="card-title">پویش من ۲</div>
+        <button class="card-btn">مدیریت</button>
+      </div>
     </div>
 
-    <!-- ویدیو -->
-    <div class="video">
-      <iframe
-        src="https://www.aparat.com/video/video/embed/videohash/ztp8ic2/vt/frame"
-        width="100%"
-        height="200"
-        allowfullscreen
-        style="border: none;"
-      ></iframe>
+    <!-- بخش تشکل‌های مورد علاقه -->
+    <h2>تشکل‌های مورد علاقه من</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="تشکل">
+        <div class="card-title">تشکل ۱</div>
+        <button class="card-btn">مشاهده</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="تشکل">
+        <div class="card-title">تشکل ۲</div>
+        <button class="card-btn">مشاهده</button>
+      </div>
     </div>
 
-    <!-- توضیحات اضافه -->
-    <div class="extra-desc">
-      اینجا میخوایم 100 آیه را بخوانیم، حفظ و زندگی کنیم. همراه با هدایای مادی و معنویی(حج عمره، عتبات، مشهد مقدس و هزاران هدیه دیگر).
+    <!-- بخش پویش‌های فعال -->
+    <h2>پویش‌های فعال من</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="پویش فعال">
+        <div class="card-title">پویش فعال ۱</div>
+        <button class="card-btn">ادامه</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/150" alt="پویش فعال">
+        <div class="card-title">پویش فعال ۲</div>
+        <button class="card-btn">ادامه</button>
+      </div>
     </div>
   </div>
 
