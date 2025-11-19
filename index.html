@@ -6,60 +6,108 @@
   <title>صفحه خانه</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* پایه و تم */
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
       background-color: #fff;
       color: #333;
     }
-
     .container {
-      padding: 16px;
       max-width: 480px;
       margin: auto;
       background-color: #fff;
       min-height: 100vh;
       box-sizing: border-box;
-      padding-bottom: 80px; /* فضای برای نوار پایین */
+      padding-bottom: 90px; /* فضای نوار پایین */
+      padding: 16px;
     }
 
-    h2 {
-      font-size: 16px;
-      font-weight: bold;
-      color: #007E7A;
-      margin: 20px 0 10px;
+    /* بخش Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-
-    /* گرید کارت‌ها */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-
-    .card {
-      background-color: #F9F9F9;
+    .hero-title {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(0,178,169,0.9);
+      color: #fff;
+      padding: 8px 12px;
       border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    /* فریم هر بخش */
+    .section {
+      margin: 20px 0;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      background: #FAFAFA;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+    .section h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #007E7A;
+      margin: 0 0 10px;
+    }
+
+    /* اسکرول افقی کارت‌ها */
+    .scroll-container {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scroll-snap-type: x mandatory;
+    }
+    .scroll-container::-webkit-scrollbar {
+      height: 6px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: #E0F2F1;
+      border-radius: 8px;
+    }
+
+    /* کارت‌ها */
+    .card {
+      flex: 0 0 150px;
+      background-color: #fff;
+      border-radius: 10px;
       padding: 8px;
       text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      scroll-snap-align: start;
     }
-
     .card img {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-bottom: 6px;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+      display: block;
     }
-
     .card-title {
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 700;
       margin-bottom: 6px;
       color: #007E7A;
     }
-
     .card-btn {
       padding: 6px;
       width: 100%;
@@ -71,7 +119,7 @@
       cursor: pointer;
     }
 
-    /* نوار ناوبری پایین */
+    /* نوار ناوبری پایین با آیکن‌های خطی */
     .nav {
       display: flex;
       justify-content: space-around;
@@ -84,15 +132,14 @@
       right: 0;
       max-width: 480px;
       margin: auto;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
     }
-
     .nav-item {
       text-align: center;
       font-size: 12px;
       color: #666;
       transition: color 0.3s;
     }
-
     .nav-item svg {
       display: block;
       width: 24px;
@@ -103,16 +150,14 @@
       stroke-width: 2;
       transition: stroke 0.3s;
     }
-
     .nav-item.active {
       color: #00B2A9;
     }
-
     .nav-item.active svg {
       stroke: #00B2A9;
     }
 
-    /* ریسپانسیو */
+    /* ریسپانسیو دسکتاپ: محدود به عرض موبایل و وسط‌چین */
     @media (min-width: 768px) {
       body {
         display: flex;
@@ -130,63 +175,97 @@
 </head>
 <body>
   <div class="container">
-    <!-- بخش پویش‌های منتخب -->
-    <h2>پویش‌های منتخب</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="پویش منتخب">
-        <div class="card-title">پویش منتخب ۱</div>
-        <button class="card-btn">مشاهده</button>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="پویش منتخب">
-        <div class="card-title">پویش منتخب ۲</div>
-        <button class="card-btn">مشاهده</button>
+    <!-- Hero -->
+    <div class="hero">
+      <img src="https://media.hawzahnews.com/old/fa/Original/1398/04/01/IMG10272761.jpg" alt="Hero Image">
+      <div class="hero-title">خانه پویش‌ها</div>
+    </div>
+
+    <!-- پویش‌های منتخب -->
+    <div class="section">
+      <h2>پویش‌های منتخب</h2>
+      <div class="scroll-container">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش منتخب">
+          <div class="card-title">پویش منتخب ۱</div>
+          <button class="card-btn">مشاهده</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش منتخب">
+          <div class="card-title">پویش منتخب ۲</div>
+          <button class="card-btn">مشاهده</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش منتخب">
+          <div class="card-title">پویش منتخب ۳</div>
+          <button class="card-btn">مشاهده</button>
+        </div>
       </div>
     </div>
 
-    <!-- بخش پویش‌های من -->
-    <h2>پویش‌های من</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="پویش من">
-        <div class="card-title">پویش من ۱</div>
-        <button class="card-btn">مدیریت</button>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="پویش من">
-        <div class="card-title">پویش من ۲</div>
-        <button class="card-btn">مدیریت</button>
-      </div>
-    </div>
-
-    <!-- بخش تشکل‌های مورد علاقه -->
-    <h2>تشکل‌های مورد علاقه من</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="تشکل">
-        <div class="card-title">تشکل ۱</div>
-        <button class="card-btn">مشاهده</button>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="تشکل">
-        <div class="card-title">تشکل ۲</div>
-        <button class="card-btn">مشاهده</button>
+    <!-- پویش‌های من -->
+    <div class="section">
+      <h2>پویش‌های من</h2>
+      <div class="scroll-container">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش من">
+          <div class="card-title">پویش من ۱</div>
+          <button class="card-btn">مدیریت</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش من">
+          <div class="card-title">پویش من ۲</div>
+          <button class="card-btn">مدیریت</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش من">
+          <div class="card-title">پویش من ۳</div>
+          <button class="card-btn">مدیریت</button>
+        </div>
       </div>
     </div>
 
-    <!-- بخش پویش‌های فعال -->
-    <h2>پویش‌های فعال من</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="پویش فعال">
-        <div class="card-title">پویش فعال ۱</div>
-        <button class="card-btn">ادامه</button>
+    <!-- تشکل‌های مورد علاقه من -->
+    <div class="section">
+      <h2>تشکل‌های مورد علاقه من</h2>
+      <div class="scroll-container">
+        <div class="card">
+          <img src="https://media.hawzahnews.com/old/fa/Original/1398/04/01/IMG10272761.jpg" alt="تشکل">
+          <div class="card-title">تشکل ۱</div>
+          <button class="card-btn">مشاهده</button>
+        </div>
+        <div class="card">
+          <img src="https://media.hawzahnews.com/old/fa/Original/1398/04/01/IMG10272761.jpg" alt="تشکل">
+          <div class="card-title">تشکل ۲</div>
+          <button class="card-btn">مشاهده</button>
+        </div>
+        <div class="card">
+          <img src="https://media.hawzahnews.com/old/fa/Original/1398/04/01/IMG10272761.jpg" alt="تشکل">
+          <div class="card-title">تشکل ۳</div>
+          <button class="card-btn">مشاهده</button>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/150" alt="پویش فعال">
-        <div class="card-title">پویش فعال ۲</div>
-        <button class="card-btn">ادامه</button>
+    </div>
+
+    <!-- پویش‌های فعال من -->
+    <div class="section">
+      <h2>پویش‌های فعال من</h2>
+      <div class="scroll-container">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش فعال">
+          <div class="card-title">پویش فعال ۱</div>
+          <button class="card-btn">ادامه</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش فعال">
+          <div class="card-title">پویش فعال ۲</div>
+          <button class="card-btn">ادامه</button>
+        </div>
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش فعال">
+          <div class="card-title">پویش فعال ۳</div>
+          <button class="card-btn">ادامه</button>
+        </div>
       </div>
     </div>
   </div>
@@ -194,6 +273,7 @@
   <!-- نوار ناوبری پایین -->
   <div class="nav">
     <div class="nav-item active">
+      <!-- شبکه من -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <circle cx="12" cy="8" r="4"></circle>
         <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path>
@@ -201,6 +281,7 @@
       شبکه من
     </div>
     <div class="nav-item">
+      <!-- مأموریت‌های من -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <rect x="4" y="4" width="16" height="16" rx="2"></rect>
         <path d="M8 8h8M8 12h8M8 16h4"></path>
@@ -208,6 +289,7 @@
       مأموریت‌های من
     </div>
     <div class="nav-item">
+      <!-- آموزش -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M4 19h16M4 5h16v14H4z"></path>
         <path d="M12 5v14"></path>
@@ -215,6 +297,7 @@
       آموزش
     </div>
     <div class="nav-item">
+      <!-- اخبار -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <rect x="3" y="4" width="18" height="16" rx="2"></rect>
         <path d="M7 8h10M7 12h10M7 16h6"></path>
