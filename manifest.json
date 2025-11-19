@@ -2,7 +2,7 @@
   "name": "multi-entry-miniapp",
   "displayName": "مینی‌اپ چند ورودی",
   "version": "1.0.0",
-  "startUrl": "/index.html",
+  "startUrl": "/masir/index.html",
   "pages": [
     {
       "name": "dashboard",
@@ -10,7 +10,7 @@
     },
     {
       "name": "campaign",
-      "url": "/campaign.html"
+      "url": "/masir/campaign.html"
     }
   ],
   "icons": [
