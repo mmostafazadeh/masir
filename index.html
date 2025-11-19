@@ -51,7 +51,7 @@
       font-size: 18px;
       font-weight: bold;
       color: #007E7A;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .org-desc {
@@ -80,16 +80,22 @@
       justify-content: space-between;
       margin: 16px 0;
       text-align: center;
+      gap: 8px;
     }
 
     .stat {
       flex: 1;
-      color: #007E7A;
+      background: #F7FBFA;
+      border: 1px solid #E0F2F1;
+      border-radius: 8px;
+      padding: 10px 8px;
     }
 
     .stat-value {
       font-size: 16px;
       font-weight: bold;
+      color: #00B2A9;
+      margin-bottom: 4px;
     }
 
     .stat-label {
@@ -120,7 +126,7 @@
     .tabs {
       display: flex;
       border-bottom: 1px solid #ddd;
-      margin-top: 16px;
+      margin-top: 8px;
     }
 
     .tab {
@@ -144,7 +150,76 @@
       color: #444;
     }
 
-    /* نوار ناوبری پایین */
+    /* گرید پویش‌ها */
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .campaign-card {
+      background-color: #F9F9F9;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .campaign-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .campaign-title {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #007E7A;
+    }
+
+    .campaign-btn {
+      padding: 6px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      background-color: #00B2A9;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* تب اخبار */
+    .news-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .news-item {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 10px;
+      background: #FAFAFA;
+    }
+
+    .news-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .news-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* نوار ناوبری پایین با آیکن‌های خطی */
     .nav {
       display: flex;
       justify-content: space-around;
@@ -185,7 +260,7 @@
       stroke: #00B2A9;
     }
 
-    /* ریسپانسیو */
+    /* ریسپانسیو برای دسکتاپ: وسط‌چین و محدود به عرض موبایل */
     @media (min-width: 768px) {
       body {
         display: flex;
@@ -206,7 +281,7 @@
     <!-- بخش بالای صفحه -->
     <div class="header">
       <div class="profile-img">
-        <img src="https://via.placeholder.com/150" alt="پروفایل تشکل">
+        <img src="https://media.hawzahnews.com/old/fa/Original/1398/04/01/IMG10272761.jpg" alt="پروفایل تشکل">
       </div>
       <div class="org-info">
         <div class="org-title">تشکل مردم‌نهاد همیاران</div>
@@ -246,8 +321,55 @@
       <div class="tab active">پویش‌های تشکل</div>
       <div class="tab">اخبار مهم</div>
     </div>
-    <div class="tab-content">
-      اینجا لیست پویش‌های فعال این تشکل نمایش داده می‌شود.
+
+    <!-- محتوای تب‌ها -->
+    <div class="tab-content" id="tab-campaigns">
+      <div class="campaign-grid">
+        <!-- 6 پویش نمونه با همان تصویر پویش نمونه -->
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">پویش ۱</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">پویش ۲</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">پویش ۳</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">پویش ۴</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">پویش ۵</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+        <div class="campaign-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQ4nOhDEy2_Wb4Hr_zca3PYzUq7YmdPEDNODrzABoHrvy8-euz1pRxlU1t5JR4QgW1os&usqp=CAU" alt="پویش نمونه">
+          <div class="campaign-title">پویش ۶</div>
+          <button class="campaign-btn">مشارکت در پویش</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-news" style="display:none;">
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-title">خبر مهم ۱</div>
+          <div class="news-desc">متن خبر مهم تشکل در این بخش قرار می‌گیرد تا مخاطبان از آخرین رویدادها مطلع شوند.</div>
+        </div>
+        <div class="news-item">
+          <div class="news-title">خبر مهم ۲</div>
+          <div class="news-desc">جزئیات فعالیت‌ها و برنامه‌های آتی تشکل جهت اطلاع‌رسانی و هماهنگی منتشر می‌شود.</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -282,5 +404,26 @@
       اخبار
     </div>
   </div>
+
+  <!-- اسکریپت ساده برای سوییچ تب‌ها -->
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const campaigns = document.getElementById('tab-campaigns');
+    const news = document.getElementById('tab-news');
+
+    tabs[0].addEventListener('click', () => {
+      tabs[0].classList.add('active');
+      tabs[1].classList.remove('active');
+      campaigns.style.display = 'block';
+      news.style.display = 'none';
+    });
+
+    tabs[1].addEventListener('click', () => {
+      tabs[1].classList.add('active');
+      tabs[0].classList.remove('active');
+      campaigns.style.display = 'none';
+      news.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
